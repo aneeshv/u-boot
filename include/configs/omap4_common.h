@@ -124,6 +124,8 @@
 
 /* clocks */
 #define CONFIG_SYS_CLOCKS_ENABLE_ALL
+/* SPI */
+#define CONFIG_OMAP_SPI		1
 
 /* commands to include */
 #include <config_cmd_default.h>
@@ -135,8 +137,6 @@
 #define CONFIG_CMD_MMC		/* MMC support                  */
 
 /* Disabled commands */
-#undef CONFIG_CMD_NET
-#undef CONFIG_CMD_NFS
 #undef CONFIG_CMD_FPGA		/* FPGA configuration Support   */
 #undef CONFIG_CMD_IMLS		/* List all found images        */
 

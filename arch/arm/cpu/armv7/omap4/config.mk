@@ -28,3 +28,5 @@ ALL-y	+= $(OBJTREE)/MLO
 else
 ALL-y	+= $(obj)u-boot.img
 endif
+
+PLATFORM_CPPFLAGS += $(call cc-option, -march=armv7-a, -march=armv5)

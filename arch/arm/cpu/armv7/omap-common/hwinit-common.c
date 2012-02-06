@@ -237,3 +237,28 @@ void enable_caches(void)
 	dcache_enable();
 }
 #endif
+
+/*
+ * This function is a wrapper to do_save_boot_params that does the
+ * real implementation of the functionality. 'do_save_boot_params()' is
+ * implemented in assembly because this is called very early in the boot
+ * when stack is not available. We had to wrap it around in this 'naked'
+ * C function because of a potential issue with the tool-chain.
+ *
+ * When U-Boot/SPL is built using the Thumb instruction set compiler
+ * potential issue with weakly linked symbols. If a function has a weakly
+ * linked default implementation in C and a real implementation in assembly
+ * GCC is confused about the instruction set of the assembly implementation
+ * As a result the assembly function that is built in ARM is executed as
+ * if it is Thumb. This results in a crash. The solution (or workaround)
+ * is to have both the weakly linked alias and the real implementation
+ * in C.
+ *
+ * This function runs without a valid stack. So, never try to use a stack
+ * or any other fancy stuff.
+ */
+void __attribute__((naked)) save_boot_params(u32 r0, u32 r1, u32 r2, u32 r4)
+{
+	asm volatile ("ldr r12, =do_save_boot_params");
+	asm volatile ("bx r12");
+}

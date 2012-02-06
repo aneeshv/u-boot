@@ -28,8 +28,8 @@
 
 #include <asm/arch/omap.h>
 
-.global save_boot_params
-save_boot_params:
+.global do_save_boot_params
+do_save_boot_params:
 	/*
 	 * See if the rom code passed pointer is valid:
 	 * It is not valid if it is not in non-secure SRAM

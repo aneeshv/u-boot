@@ -23,6 +23,7 @@
 
 #include <config.h>
 
+.type reset_cpu, %function
 .global reset_cpu
 reset_cpu:
 	ldr	r1, rstctl			@ get addr for global reset

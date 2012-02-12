@@ -31,7 +31,8 @@
  */
 
 	.align	5
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr	r1, rstctl1	/* get clkm1 reset ctl */
 	mov	r3, #0x0

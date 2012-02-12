@@ -31,7 +31,8 @@
 #include <asm-offsets.h>
 #include <config.h>
 #include <version.h>
-.globl _start
+.type	_start, %function
+.global	_start
 _start: b	reset
 #ifdef CONFIG_SPL_BUILD
 	ldr	pc, _hang
@@ -178,7 +179,8 @@ call_board_init_f:
  * after relocating the monitor code.
  *
  */
-	.globl	relocate_code
+.type	relocate_code, %function
+.global	relocate_code
 relocate_code:
 	mov	r4, r0	/* save addr_sp */
 	mov	r5, r1	/* save addr of gd */
@@ -510,6 +512,7 @@ fiq:
 
 #endif
 	.align 5
+.type	arm1136_cache_flush, %function
 .global arm1136_cache_flush
 arm1136_cache_flush:
 #if !defined(CONFIG_SYS_ICACHE_OFF)

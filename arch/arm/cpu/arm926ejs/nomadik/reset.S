@@ -4,7 +4,8 @@
  */
 
 	.align 5
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr	r0, =NOMADIK_SRC_BASE	/* System and Reset Controller */
 	ldr	r1, =0x1

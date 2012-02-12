@@ -95,8 +95,10 @@
 .endm
 
 	.align	5
-.globl __divsi3
-.globl __aeabi_idiv
+.type	__divsi3, %function
+.global	__divsi3
+.type	__aeabi_idiv, %function
+.global	__aeabi_idiv
 __divsi3:
 __aeabi_idiv:
 	cmp	r1, #0

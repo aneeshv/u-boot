@@ -44,7 +44,8 @@
  */
 
 
-.globl _start
+.type	_start, %function
+.global	_start
 _start:
 	b	reset
 	ldr	pc, _undefined_instruction
@@ -163,7 +164,8 @@ call_board_init_f:
  * after relocating the monitor code.
  *
  */
-	.globl	relocate_code
+.type	relocate_code, %function
+.global	relocate_code
 relocate_code:
 	mov	r4, r0	/* save addr_sp */
 	mov	r5, r1	/* save addr of gd */
@@ -482,7 +484,8 @@ fiq:
 #else
 
 	.align	5
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 
 	ldr	r1, rstctl1	/* get clkm1 reset ctl */

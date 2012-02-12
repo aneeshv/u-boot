@@ -312,7 +312,8 @@
 
 .section ".text.init", "x"
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 #if defined(CONFIG_MX51)
 	ldr r0, =GPIO1_BASE_ADDR

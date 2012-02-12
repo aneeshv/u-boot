@@ -35,7 +35,8 @@
 _TEXT_BASE:
 	.word	CONFIG_SYS_TEXT_BASE	/* sdram load addr from config.mk */
 
-.global save_boot_params
+.type	save_boot_params, %function
+.global	save_boot_params
 save_boot_params:
 #ifdef CONFIG_SPL_BUILD
 	ldr	r4, =omap3_boot_device
@@ -45,7 +46,8 @@ save_boot_params:
 #endif
 	bx	lr
 
-.global omap3_gp_romcode_call
+.type	omap3_gp_romcode_call, %function
+.global	omap3_gp_romcode_call
 omap3_gp_romcode_call:
 	PUSH {r4-r12, lr} @ Save all registers from ROM code!
 	MOV r12, r0	@ Copy the Service ID in R12
@@ -62,7 +64,8 @@ omap3_gp_romcode_call:
  *	R0 - Service ID
  *	R1 - paramer list
  */
-.global do_omap3_emu_romcode_call
+.type	do_omap3_emu_romcode_call, %function
+.global	do_omap3_emu_romcode_call
 do_omap3_emu_romcode_call:
 	PUSH {r4-r12, lr} @ Save all registers from ROM code!
 	MOV r12, r0	@ Copy the Secure Service ID in R12
@@ -82,7 +85,8 @@ do_omap3_emu_romcode_call:
  * cpy_clk_code: relocates clock code into SRAM where its safer to execute
  * R1 = SRAM destination address.
  *************************************************************************/
-.global cpy_clk_code
+.type	cpy_clk_code, %function
+.global	cpy_clk_code
  cpy_clk_code:
 	/* Copy DPLL code into SRAM */
 	adr	r0, go_to_speed		/* get addr of clock setting code */
@@ -109,7 +113,8 @@ next2:
  *        L3 when its not in self refresh seems bad for it.  Normally, this
  *	  code runs from flash before SDR is init so that should be ok.
  ****************************************************************************/
-.global go_to_speed
+.type	go_to_speed, %function
+.global	go_to_speed
  go_to_speed:
 	stmfd sp!, {r4 - r6}
 
@@ -211,7 +216,8 @@ pll_div_val5:
 
 #endif
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 	ldr	sp, SRAM_STACK
 	str	ip, [sp]	/* stash old link register */
@@ -289,7 +295,8 @@ mpu_dpll_param:
 .word MPU_M_38P4, MPU_N_38P4, MPU_FSEL_38P4, MPU_M2_38P4
 
 
-.globl get_mpu_dpll_param
+.type	get_mpu_dpll_param, %function
+.global	get_mpu_dpll_param
 get_mpu_dpll_param:
 	adr	r0, mpu_dpll_param
 	mov	pc, lr
@@ -336,7 +343,8 @@ iva_dpll_param:
 .word IVA_M_38P4, IVA_N_38P4, IVA_FSEL_38P4, IVA_M2_38P4
 
 
-.globl get_iva_dpll_param
+.type	get_iva_dpll_param, %function
+.global	get_iva_dpll_param
 get_iva_dpll_param:
 	adr	r0, iva_dpll_param
 	mov	pc, lr
@@ -383,7 +391,8 @@ core_dpll_param:
 /* 3410 */
 .word CORE_M_38P4, CORE_N_38P4, CORE_FSEL_38P4, CORE_M2_38P4
 
-.globl get_core_dpll_param
+.type	get_core_dpll_param, %function
+.global	get_core_dpll_param
 get_core_dpll_param:
 	adr	r0, core_dpll_param
 	mov	pc, lr
@@ -405,7 +414,8 @@ per_dpll_param:
 /* 38.4MHz */
 .word PER_M_38P4, PER_N_38P4, PER_FSEL_38P4, PER_M2_38P4
 
-.globl get_per_dpll_param
+.type	get_per_dpll_param, %function
+.global	get_per_dpll_param
 get_per_dpll_param:
 	adr	r0, per_dpll_param
 	mov	pc, lr
@@ -427,7 +437,8 @@ per2_dpll_param:
 /* 38.4MHz */
 .word PER2_M_38P4, PER2_N_38P4, PER2_FSEL_38P4, PER2_M2_38P4
 
-.globl get_per2_dpll_param
+.type	get_per2_dpll_param, %function
+.global	get_per2_dpll_param
 get_per2_dpll_param:
 	adr	r0, per2_dpll_param
 	mov	pc, lr
@@ -480,22 +491,26 @@ per_36x_dpll_param:
 .word 26000,    432,   12,     9,      16,     9,     4,      3,      1
 .word 38400,    360,   15,     9,      16,     5,     4,      3,      1
 
-.globl get_36x_mpu_dpll_param
+.type	get_36x_mpu_dpll_param, %function
+.global	get_36x_mpu_dpll_param
 get_36x_mpu_dpll_param:
 	adr	r0, mpu_36x_dpll_param
 	mov	pc, lr
 
-.globl get_36x_iva_dpll_param
+.type	get_36x_iva_dpll_param, %function
+.global	get_36x_iva_dpll_param
 get_36x_iva_dpll_param:
 	adr	r0, iva_36x_dpll_param
 	mov	pc, lr
 
-.globl get_36x_core_dpll_param
+.type	get_36x_core_dpll_param, %function
+.global	get_36x_core_dpll_param
 get_36x_core_dpll_param:
 	adr	r0, core_36x_dpll_param
 	mov	pc, lr
 
-.globl get_36x_per_dpll_param
+.type	get_36x_per_dpll_param, %function
+.global	get_36x_per_dpll_param
 get_36x_per_dpll_param:
 	adr	r0, per_36x_dpll_param
 	mov	pc, lr

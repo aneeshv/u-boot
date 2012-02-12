@@ -27,7 +27,8 @@
 #include <version.h>
 #include <asm/arch/ep93xx.h>
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 	/* backup return address */
 	ldr r1, =SYSCON_SCRATCH0

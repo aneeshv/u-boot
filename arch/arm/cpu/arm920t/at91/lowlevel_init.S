@@ -44,7 +44,8 @@ _MTEXT_BASE:
 	.word	CONFIG_SYS_TEXT_BASE
 #endif
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 	ldr     r1, =AT91_ASM_PMC_MOR
 	/* Main oscillator Enable register */

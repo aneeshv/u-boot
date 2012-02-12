@@ -21,12 +21,14 @@
 
 #include <config.h>
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 	mov	pc, lr
 
 	.align	5
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr r0, =CFG_PRCMU_BASE
 	ldr r1, =0x1

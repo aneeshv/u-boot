@@ -21,7 +21,8 @@
  * MA 02111-1307 USA
  */
 
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr	r0, WDT_TGCR
 	mov	r1, $0x08

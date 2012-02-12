@@ -64,7 +64,8 @@
  *************************************************************************
  */
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 
 #if DEBUG

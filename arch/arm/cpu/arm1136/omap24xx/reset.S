@@ -30,7 +30,8 @@
 
 #include <asm/arch/omap2420.h>
 
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr	r1, rstctl	/* get addr for global reset reg */
 	mov	r3, #0x2	/* full reset pll+mpu */

@@ -45,8 +45,8 @@
 _TEXT_BASE:
 	.word	CONFIG_SYS_TEXT_BASE
 
-.globl lowlevel_init
-.type lowlevel_init,function
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 
 	mov	r5, pc		/* r5 = POS1 + 4 current */

@@ -36,7 +36,8 @@
  */
 
 
-.globl _start
+.type	_start, %function
+.global	_start
 _start:	b       reset
 	add	pc, pc, #0x0c000000
 	add	pc, pc, #0x0c000000
@@ -144,7 +145,8 @@ call_board_init_f:
  * after relocating the monitor code.
  *
  */
-	.globl	relocate_code
+.type	relocate_code, %function
+.global	relocate_code
 relocate_code:
 	mov	r4, r0	/* save addr_sp */
 	mov	r5, r1	/* save addr of gd */

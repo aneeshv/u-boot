@@ -34,8 +34,10 @@ Boston, MA 02110-1301, USA.  */
 #define ah r1
 #endif
 
-.globl __lshrdi3
-.globl __aeabi_llsr
+.type	__lshrdi3, %function
+.global	__lshrdi3
+.type	__aeabi_llsr, %function
+.global	__aeabi_llsr
 __lshrdi3:
 __aeabi_llsr:
 

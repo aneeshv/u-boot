@@ -37,7 +37,8 @@
  */
 
 
-.globl _start
+.type	_start, %function
+.global	_start
 _start: b	reset
 	ldr	pc, _undefined_instruction
 	ldr	pc, _software_interrupt
@@ -155,7 +156,8 @@ call_board_init_f:
  * after relocating the monitor code.
  *
  */
-	.globl	relocate_code
+.type	relocate_code, %function
+.global	relocate_code
 relocate_code:
 	mov	r4, r0	/* save addr_sp */
 	mov	r5, r1	/* save addr of gd */
@@ -590,7 +592,8 @@ fiq:
 
 #if defined(CONFIG_NETARM)
 	.align	5
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr	r1, =NETARM_MEM_MODULE_BASE
 	ldr	r0, [r1, #+NETARM_MEM_CS0_BASE_ADDR]
@@ -615,7 +618,8 @@ reset_cpu:
 	/* No specific reset actions for IntegratorAP/CM720T as yet */
 #elif defined(CONFIG_LPC2292)
 	.align	5
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	mov	pc, r0
 #else

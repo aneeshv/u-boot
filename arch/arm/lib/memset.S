@@ -27,7 +27,8 @@
  * memset again.
  */
 
-.globl memset
+.type	memset, %function
+.global	memset
 memset:
 	ands	r3, r0, #3		@ 1 unaligned?
 	bne	1b			@ 1

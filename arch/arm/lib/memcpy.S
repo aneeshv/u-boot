@@ -57,7 +57,8 @@
 
 /* Prototype: void *memcpy(void *dest, const void *src, size_t n); */
 
-.globl memcpy
+.type	memcpy, %function
+.global	memcpy
 memcpy:
 
 		cmp	r0, r1

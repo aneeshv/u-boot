@@ -28,7 +28,8 @@
 
 #include <asm/arch/omap.h>
 
-.global save_boot_params
+.type	save_boot_params, %function
+.global	save_boot_params
 save_boot_params:
 	/*
 	 * See if the rom code passed pointer is valid:
@@ -78,7 +79,8 @@ save_boot_params:
 	bx	lr
 
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 	/*
 	 * Setup a temporary stack
@@ -96,7 +98,8 @@ lowlevel_init:
 	bl	s_init
 	pop	{ip, pc}
 
-.globl set_pl310_ctrl_reg
+.type	set_pl310_ctrl_reg, %function
+.global	set_pl310_ctrl_reg
 set_pl310_ctrl_reg:
 	PUSH	{r4-r11, lr}	@ save registers - ROM code may pollute
 				@ our registers

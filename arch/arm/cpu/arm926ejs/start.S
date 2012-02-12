@@ -52,14 +52,16 @@
 
 
 #ifdef CONFIG_SYS_DV_NOR_BOOT_CFG
-.globl _start
+.type	_start, %function
+.global	_start
 _start:
 .globl _NOR_BOOT_CFG
 _NOR_BOOT_CFG:
 	.word	CONFIG_SYS_DV_NOR_BOOT_CFG
 	b	reset
 #else
-.globl _start
+.type	_start, %function
+.global	_start
 _start:
 	b	reset
 #endif
@@ -220,7 +222,8 @@ call_board_init_f:
  * after relocating the monitor code.
  *
  */
-	.globl	relocate_code
+.type	relocate_code, %function
+.global	relocate_code
 relocate_code:
 	mov	r4, r0	/* save addr_sp */
 	mov	r5, r1	/* save addr of gd */

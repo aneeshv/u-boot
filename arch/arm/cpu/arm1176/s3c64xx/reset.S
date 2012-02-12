@@ -23,7 +23,8 @@
 
 #include <asm/arch/s3c6400.h>
 
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr	r1, =ELFIN_CLOCK_POWER_BASE
 	ldr	r2, [r1, #SYS_ID_OFFSET]

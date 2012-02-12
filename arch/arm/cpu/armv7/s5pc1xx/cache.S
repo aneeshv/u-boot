@@ -26,6 +26,7 @@
 .align 5
 
 #ifndef CONFIG_SYS_L2CACHE_OFF
+.type v7_outer_cache_enable, %function
 .global v7_outer_cache_enable
 v7_outer_cache_enable:
 	push	{r0, r1, r2, lr}
@@ -34,6 +35,7 @@ v7_outer_cache_enable:
 	mcr	15, 0, r3, cr1, cr0, 1
 	pop	{r1, r2, r3, pc}
 
+.type v7_outer_cache_disable, %function
 .global v7_outer_cache_disable
 v7_outer_cache_disable:
 	push	{r0, r1, r2, lr}

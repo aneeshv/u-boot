@@ -17,6 +17,7 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+.type reset_cpu, %function
 .global reset_cpu
 reset_cpu:
 	b	reset_cpu

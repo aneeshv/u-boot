@@ -47,7 +47,8 @@
 
 #define MDSTAT_STATE	0x3f
 
-.globl	lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 
 	/*-------------------------------------------------------*

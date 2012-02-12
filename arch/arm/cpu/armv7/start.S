@@ -34,7 +34,8 @@
 #include <version.h>
 #include <asm/system.h>
 
-.globl _start
+.type	_start, %function
+.global	_start
 _start: b	reset
 	ldr	pc, _undefined_instruction
 	ldr	pc, _software_interrupt
@@ -172,7 +173,8 @@ call_board_init_f:
  * after relocating the monitor code.
  *
  */
-	.globl	relocate_code
+.type	relocate_code, %function
+.global	relocate_code
 relocate_code:
 	mov	r4, r0	/* save addr_sp */
 	mov	r5, r1	/* save addr of gd */
@@ -298,7 +300,8 @@ _board_init_r_ofs:
  * CONFIG_SYS_ICACHE_OFF is defined.
  *
  *************************************************************************/
-.globl cpu_init_cp15
+.type	cpu_init_cp15, %function
+.global	cpu_init_cp15
 cpu_init_cp15:
 	/*
 	 * Invalidate L1 I/D

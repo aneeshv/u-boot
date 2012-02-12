@@ -18,7 +18,8 @@
  */
 .section ".text.init", "x"
 
-.globl lowlevel_init
+.type	lowlevel_init, %function
+.global	lowlevel_init
 lowlevel_init:
 
 	mov pc, lr

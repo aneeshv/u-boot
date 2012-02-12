@@ -70,7 +70,8 @@
 .endm
 
 	.align	5
-.globl __modsi3
+.type	__modsi3, %function
+.global	__modsi3
 __modsi3:
 	cmp	r1, #0
 	beq	Ldiv0

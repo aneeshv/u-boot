@@ -26,7 +26,8 @@
 #include <config.h>
 #include <asm/arch/s3c6400.h>
 
-	.globl mem_ctrl_asm_init
+.type	mem_ctrl_asm_init, %function
+.global	mem_ctrl_asm_init
 mem_ctrl_asm_init:
 	/* DMC1 base address 0x7e001000 */
 	ldr	r0, =ELFIN_DMC1_BASE

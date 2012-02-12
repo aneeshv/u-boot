@@ -26,7 +26,8 @@
 #define S5PC100_SWRESET			0xE0200000
 #define S5PC110_SWRESET			0xE0102000
 
-.globl reset_cpu
+.type	reset_cpu, %function
+.global	reset_cpu
 reset_cpu:
 	ldr	r1, =S5PC100_PRO_ID
 	ldr	r2, [r1]

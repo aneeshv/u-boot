@@ -72,7 +72,8 @@ Ldiv0:
 	ldmia	sp!, {pc}
 	.size  __udivsi3       , . -  __udivsi3
 
-.globl __aeabi_uidivmod
+.type	__aeabi_uidivmod, %function
+.global	__aeabi_uidivmod
 __aeabi_uidivmod:
 
 	stmfd	sp!, {r0, r1, ip, lr}
@@ -82,7 +83,8 @@ __aeabi_uidivmod:
 	sub	r1, r1, r3
 	mov	pc, lr
 
-.globl __aeabi_idivmod
+.type	__aeabi_idivmod, %function
+.global	__aeabi_idivmod
 __aeabi_idivmod:
 
 	stmfd	sp!, {r0, r1, ip, lr}

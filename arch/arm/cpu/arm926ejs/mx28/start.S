@@ -49,7 +49,8 @@
  */
 
 
-.globl _start
+.type	_start, %function
+.global	_start
 _start:
 	b	reset
 	b	undefined_instruction

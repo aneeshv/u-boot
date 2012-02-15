@@ -22,8 +22,9 @@
 #
 PLATFORM_RELFLAGS += -fno-common -ffixed-r8 -msoft-float
 
-# Make ARMv5 to allow more compilers to work, even though its v7a.
-PLATFORM_CPPFLAGS += -march=armv5
+# If armv7-a is not supported by GCC fall-back to armv5, which is
+# supported by more tool-chains
+PLATFORM_CPPFLAGS += $(call cc-option, -march=armv7-a, -march=armv5)
 # =========================================================================
 #
 # Supply options according to compiler version
